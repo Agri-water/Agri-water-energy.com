@@ -26,6 +26,16 @@
             overflow-x: hidden;
         }
 
+        /* --- Background Container --- */
+        .background-image {
+            background-image: url('./image/background1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100%;
+            min-height: 100vh;
+        }
+
         /* --- Main Wrapper Header --- */
         .wrapper-head {
             background-color: #ffffff;
@@ -44,7 +54,7 @@
         }
 
         .logo {
-            background-color: #ffffff;
+            background-image: url('./image/office\ logo.png');
             width: 4rem;
             height: 3.5rem;
             object-fit: contain;
@@ -64,6 +74,8 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            justify-content: center;
+            text-indent: 50px;
         }
 
         /* --- Top Interactive Button Ribbon --- */
@@ -81,7 +93,7 @@
             max-width: 95%;
         }
 
-        .middle-top a, .middle-top button,
+        .middle-top button,
         .Tender, .Vacancy, .Status, .Stracture, .Gallery {
             background: linear-gradient(135deg, #ff4b4b, #8b2cff);
             color: #ffffff;
@@ -98,14 +110,14 @@
             justify-content: center;
         }
 
-        .middle-top a:hover, .middle-top button:hover,
+        .middle-top button:hover,
         .Tender:hover, .Vacancy:hover, .Status:hover, .Stracture:hover, .Gallery:hover {
             color: hsl(120, 81%, 50%);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(139, 44, 255, 0.4);
         }
 
-        /* --- Navigation Bar (Linked to your 12 HTML files) --- */
+        /* --- Navigation Bar --- */
         .nav-bar {
             background-color: #ffffff;
             padding: 10px 20px;
@@ -121,7 +133,7 @@
 
         .nav-bar ul {
             display: flex;
-            gap: 10px;
+            gap: 15px;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
@@ -130,12 +142,12 @@
         .nav-bar a {
             position: relative;
             display: block;
-            padding: 6px 14px;
+            padding: 6px 16px;
             border-radius: 50px;
             text-decoration: none;
             color: #333;
             font-weight: bold;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             transition: 0.35s ease;
         }
 
@@ -203,7 +215,12 @@
         .C { background-color: lightskyblue; }
         .G { background-color: lightslategray; }
 
-        /* --- Central Bureau Card with Bureau Head Picture --- */
+        .Agri:hover, .WMEO:hover, .COOPY:hover, .fainance:hover, 
+        .FSRP:hover, .L:hover, .P:hover, .C:hover, .G:hover {
+            transform: scale(1.08);
+        }
+
+        /* --- Central Bureau Header Card --- */
         .dd-bureau-card {
             flex: 1 1 700px;
             background: #ffffff;
@@ -236,18 +253,21 @@
             flex-wrap: wrap;
         }
 
-        /* Bureau Head Picture Container */
-        .bureau-head-img {
-            width: 90px;
-            height: 90px;
+        .dd-avatar-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #e8f5e9;
+            color: #1b5e20;
             border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #1b5e20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
             flex-shrink: 0;
         }
 
         .dd-profile-title h2 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: #1b5e20;
             font-weight: 700;
         }
@@ -450,9 +470,8 @@
             .middle-top {
                 border-radius: 15px;
             }
-            .middle-top a, .middle-top button {
+            .middle-top button, .Tender, .Vacancy, .Status, .Stracture, .Gallery {
                 width: 100%;
-                text-align: center;
             }
             .dd-card-body {
                 padding: 20px 15px;
@@ -469,31 +488,27 @@
 
     <!-- Header -->
     <header class="wrapper-head">
-        <img src="./image/agri1.jpg" alt="Bureau Logo" class="logo">
+        <img src="./image/office logo.png" alt="Bureau Logo" class="logo">
         <div class="title">Dire Dawa Agriculture Water Mine and Energy Bureau</div>
     </header>
 
     <!-- Interactive Button Ribbon -->
     <div class="middle-top">
-        <a href="tender.html" class="Tender">Tender</a>
-        <a href="vacancy.html" class="Vacancy">Vacancy</a>
-        <a href="status.html" class="Status">Status</a>
-        <a href="structure.html" class="Stracture">Structure</a>
-        <a href="gallery.html" class="Gallery">Gallery</a>
+        <Button  class="Tender" onclick="document.location='./Tender.html'">Tender</Button>
+        <Button class="Vacancy" onclick="document.location='./VACANCY.html'">Vacancy</Button>
+        <Button class="Status" onclick="document.location='./Status.html'">Status</Button>
+        <Button class="Stracture" onclick="document.location='./Structure.html'">Stracture</Button>
+        <Button class="Gallery" onclick="document.location='./GALLERY.html'">Gallery</Button>
     </div>
 
-    <!-- Main Navigation Bar Linked to your 12 HTML files -->
+    <!-- Main Navigation Bar -->
     <nav class="nav-bar">
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="agriculture.html">Agriculture</a></li>
-            <li><a href="water.html">Water</a></li>
-            <li><a href="mine.html">Mine</a></li>
-            <li><a href="energy.html">Energy</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
+             <li><a href="javascript:void(0);">HOME</a></li>
+            <li><a href="ABOUT US.html">ABOUTUS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+            <li><a href="EVENT.html">EVENT</a></li>
+            <li><a href="BLOG.html">BLOOG</a></li>
         </ul>
     </nav>
 
@@ -503,29 +518,36 @@
         <!-- Left Side Action Bar -->
         <aside class="left-side-bar">
             <div class="top">
-                <button class="Agri" title="Agriculture"></button>
-                <button class="WMEO" title="Water & Energy"></button>
-                <button class="COOPY" title="Cooperative"></button>
-                <button class="fainance" title="Finance"></button>
+                 <Button class="Agri" onclick="document.location='./AGRICULTURE.html'">Agriculture
+                    Office</Button>
+                <Button class="WMEO" onclick="document.location='./WATER.html'">Water Office</Button>
+                </Button>
+                <Button class="COOPY"
+                    onclick="document.location='./COOPERATIVE.html'">COOPERATIVE</Button>
+                </Button>
+                <Button class="fainance"                                                           
+                    onclick="document.location='./fainance.html'">fainance</Button>
+                </Button>                                                                       
             </div>
             <div class="left-bottom">
-                <button class="FSRP" title="FSRP"></button>
-                <button class="L" title="LLRP"></button>
-                <button class="P" title="PSNP"></button>
-                <button class="C" title="Info C"></button>
-                <button class="G" title="Info G"></button>
+                <Button class="FSRP" onclick="document.location='./FSRP.html'">FSRP</Button>
+                <Button class="L" onclick="document.location='./LLRP.html'">LLRP</Button>
+                <Button class="P"onclick="document.location='./RURAL JOB CREATION.html'">RJC</Button>
+                <Button class="C" onclick="document.location='./CALM.html'">CALM</Button>
+                <Button class="G" onclick="document.location='./GCF.html'">GCF</Button>
             </div>
         </aside>
 
-        <!-- Bureau Intro Card featuring the Bureau Head's Picture -->
+        <!-- Bureau Intro Card -->
         <main class="dd-bureau-card">
             <div class="dd-card-body">
                 <div class="dd-head-profile">
-                    <!-- Bureau Head Picture (Make sure to name your head's photo file accordingly in your image folder) -->
-                    <img src="./image/bureau-head.jpg" alt="Bureau Head" class="bureau-head-img">
+                    <div class="dd-avatar-icon">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
                     <div class="dd-profile-title">
-                        <h2>Bureau Head's Welcome Message</h2>
-                        <p>Welcome to Dire Dawa Agriculture Water Mine and Energy Bureau official portal.</p>
+                        <h2>Dire Dawa Agriculture Water Mine and Energy Bureau</h2>
+                        <p>Promoting sustainable agriculture, water supply, mining, and green energy development.</p>
                     </div>
                 </div>
 
@@ -569,45 +591,84 @@
     <section class="post-container">
         <div class="news-box-1">
             <div class="pic-container-1">
-                <img src="./image/agri1.jpg" alt="Agricultural Project">
+                <img src="./image/ግብርና ርክክብ.jpg" alt="Agricultural office">
             </div>
             <div class="proj-info-1">
-                <p>Sustainable farming and modern crop production initiatives across the region.</p>
+                <p>ነባሯ የግ/ል/ጽ/ቤት/ኋላፊ ወ/ሮ ሚስራ አብደላ አዲስ ለተተኩት ለአቶ አሊያስ አልዪ ሃላፊነታቸውን አስረክበዋል.</p>
             </div>
         </div>
 
         <div class="news-box-2">
             <div class="pic-container-2">
-                <img src="./image/water.jfif" alt="Water Management">
+                <img src="./image/ውሃ ጽቤት ርክክብ.jpg" alt="Water ኦፍፊቻ">
             </div>
             <div class="proj-info-2">
-                <p>Clean water supply projects expanding clean drinking water accessibility.</p>
+                <p>የው/ጽ/ቤት/ኋላፊ አቶ አህመድ ሰኢድ አዲስ ለተሾሙት ለአቶ ሀሰን ጣሂር ሃላፊነታቸውን አስረክበዋል.</p>
             </div>
         </div>
 
         <div class="news-box-3">
             <div class="pic-container-3">
-                <img src="./image/coopy logo.jpg" alt="Cooperative Union">
+                <img src="./image/ማእድን ና ኢነርጂ ርክክብ.jpg" alt="Energy">
             </div>
             <div class="proj-info-3">
-                <p>Supporting farmers' cooperatives and fair market trade programs.</p>
+                <p>የማ/ኢ/ዳሬ/ት ኋላፊ አቶ አህመድ ፈረጃ  አዲስ ለተሾሙት ለወ/ሮ ሰላም ኤፍሬም ሃላፊነታቸውን አስረክበዋል</p>
             </div>
         </div>
 
         <div class="news-box-4">
             <div class="pic-container-4">
-                <img src="./image/FSRP LOGO.jpg" alt="FSRP Project">
+                <img src="./image/እንስሳት ሀብት ልማት ርክክብ.jpg" alt="animal Project">
             </div>
             <div class="proj-info-4">
-                <p>Food System Resilience Program enhancing agricultural safety nets.</p>
+                <p>የእ/ሀ/ል/ዳሬ/ት ኋላፊ አቶ ከዲር  አዲስ ለተሾሙት ለዶ/ር ሳላህ ሃላፊነታቸውን አስረክበዋል.</p>
             </div>
         </div>
     </section>
+     <section class="post-container">
+        <div class="news-box-1">
+            <div class="pic-container-1">
+                <img src="./image/የቢሮ አማካሪ ርክክብ.jpg" alt="Agricultural office">
+            </div>
+            <div class="proj-info-1">
+                <p>የቢሮው ኋላፊ አማካሪ የነበሩት  አቶ መሀመድ አዲስ ለተሾሙት ለአቶ ከዲር ሃላፊነታቸውን አስረክበዋል.</p>
+            </div>
+        </div>
 
-    <!-- Media Gallery & Map Section (Using images from your image folder) -->
+        <div class="news-box-2">
+            <div class="pic-container-2">
+                <img src="./image/የገጠር ምግብ ዋስትና ርክክብ.jpg" alt="Water ኦፍፊቻ">
+            </div>
+            <div class="proj-info-2">
+                <p>የገ/ም/ዋ/ዳሬ/ት ሃ፤አፊ አቶ ፈንድሽ አዲስ ለተሾሙት ለአቶ ሙሳ ሃላፊነታቸውን አስረክበዋል.</p>
+            </div>
+        </div>
+
+        <div class="news-box-3">
+            <div class="pic-container-3">
+                <img src="./image/ግብአት ርክክብ.jpg" alt="Energy">
+            </div>
+            <div class="proj-info-3">
+                <p>የግ/ዳሬ/ት ኋላፊ አቶ አብዱልጀባር  አዲስ ለተሾሙት ለአቶ_  ሃላፊነታቸውን አስረክበዋል</p>
+            </div>
+        </div>
+
+        <div class="news-box-4">
+            <div class="pic-container-4">
+                <img src="./image/እንስሳት ሀብት ልማት ርክክብ.jpg" alt="animal Project">
+            </div>
+            <div class="proj-info-4">
+                <p>የእ/ሀ/ል/ዳሬ/ት ኋላፊ አቶ ከዲር  አዲስ ለተሾሙት ለዶ/ር ሳላህ ሃላፊነታቸውን አስረክበዋል.</p>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <!-- Media Gallery & Map Section -->
     <section class="collectionn-box">
         <div class="collection-top">
-            <div class="picture-box">
+            <div class="picture-box">   
                 <img src="./image/background1.jpg" alt="Bureau Image Gallery" class="image-12">
             </div>
             <div class="video-box">
