@@ -482,6 +482,12 @@
             }
         }
     </style>
+    <!-- React and Babel CDNs -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
 </head>
 
 <body>
@@ -494,13 +500,13 @@
 
     <!-- Interactive Button Ribbon -->
     <div class="middle-top">
-        <Button  class="Tender" onclick="document.location='./TenderPotal.html'">Tender</Button>
+        <button class="Tender" onclick="window.location.href='./login form.html'">Tender</button>
         <Button class="Vacancy" onclick="document.location='./VACANCY.html'">Vacancy</Button>
         <Button class="Status" onclick="document.location='./Status.html'">Status</Button>
         <Button class="Stracture" onclick="document.location='./Structure.html'">Stracture</Button>
         <Button class="Gallery" onclick="document.location='./GALLERY.html'">Gallery</Button>
     </div>
-
+   
     <!-- Main Navigation Bar -->
     <nav class="nav-bar">
         <ul>
@@ -688,8 +694,16 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2026 Dire Dawa Agriculture Water Mine and Energy Bureau. All Rights Reserved.</p>
+        <p>copy; 2026 Dire Dawa Agriculture Water Mine and Energy Bureau. All Rights Reserved.</p>
     </footer>
+
+    <!-- React will render everything inside this div -->
+    <div id="root"></div>
+
+    <!-- Link your React logic file -->
+    <script type="text/babel" src="app.js"></script>
+
+
 
 </body>
 </html>
