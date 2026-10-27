@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tender Documents - Procurement Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts & FontAwesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style type="text/css">
+
+      /* Global Reset & Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-image: url('./image/BI\ finance.png');
+    background-color: #f4f6f9;
+    color: #333;
+    line-height: 1.5;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.portal-header {
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #64748b;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #2563eb;
+}
+
+.btn-post {
+    background: #2563eb;
+    color: #fff !important;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.btn-post:hover {
+    background: #1d4ed8;
+}
+
+/* Main Container */
+.main-container {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.page-title-section {
+    margin-bottom: 24px;
+}
+
+.page-title-section h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.results-count {
+    color: #64748b;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+/* Controls Bar (Search & Filter) */
+.controls-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 280px;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 10px 14px;
+    gap: 10px;
+}
+
+.search-box i {
+    color: #94a3b8;
+}
+
+.search-box input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+}
+
+.filter-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.filter-btn {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #475569;
+}
+
+.filter-btn.active {
+    background: #2563eb;
+    color: #fff;
+    border-color: #2563eb;
+}
+
+.filter-dropdown-btn {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #475569;
+}
+
+/* Tenders Grid */
+.tenders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.tender-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tender-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.badge.free {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.badge.paid {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.file-tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.tender-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.tender-desc {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.tender-meta {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 12px;
+    margin-bottom: 16px;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.meta-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.meta-item .label {
+    color: #94a3b8;
+}
+
+.meta-item .value {
+    color: #334155;
+    font-weight: 500;
+}
+
+.card-footer {
+    margin-top: auto;
+}
+
+.btn-download, .btn-buy {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.btn-download {
+    background: #f1f5f9;
+    color: #2563eb;
+}
+
+.btn-download:hover {
+    background: #e2e8f0;
+}
+
+.btn-buy {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.btn-buy:hover {
+    background: #1d4ed8;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.page-btn {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #475569;
+    transition: background 0.2s;
+}
+
+.page-btn:hover:not(.disabled) {
+    background: #f1f5f9;
+}
+
+.page-btn.active {
+    background: #2563eb;
+    color: #fff;
+    border-color: #2563eb;
+}
+
+.page-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.dots {
+    color: #94a3b8;
+    padding: 0 5px;
+}
+
+        
+    </style>
+
+    <script src="/js/tender-portal.js"></script>
+
+
+</head>
+<body class="background-image">
+
+    
+
+    <!-- Header Section -->
+    <header class="portal-header">
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fa-solid fa-file-contract"></i>
+                <span>TenderPortal</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#" class="active">All Tenders</a>
+                <a href="#">Free Tenders</a>
+                <a href="#">Paid Tenders</a>
+                <a href="#" class="btn-post">Post Tender</a>
+            </nav>
+        </div>
+    </header>
+
+    <body class="background-image"></body>
+
+    <!-- Main Content -->
+    <main class="container main-container">
+        
+        <!-- Page Title & Stats -->
+        <div class="page-title-section">
+            <h1>All Tender Documents</h1>
+            <p class="results-count">Showing 1 - 6 of 4,930 available documents</p>
+        </div>
+
+        <!-- Search & Filter Controls -->
+        <div class="controls-bar">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search by company name or tender title...">
+            </div>
+            <div class="filter-actions">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Free</button>
+                <button class="filter-btn">Paid</button>
+                <button class="filter-dropdown-btn"><i class="fa-solid fa-sliders"></i> Filter</button>
+            </div>
+        </div>
+
+        <!-- Tender Cards Grid -->
+        <div class="tenders-grid">
+
+            <!-- Card 1 (ZIP File) -->
+            <div class="tender-card">
+                <div class="card-top">
+                    <span class="badge free">Free</span>
+                    <span class="file-tag zip"><i class="fa-solid fa-file-zipper"></i> ZIP</span>
+                </div>
+                <h3>Framework Agreements consultation for LLRP PROJECT</h3>
+                <p class="tender-desc">A.W.M.E.B is launching a tender consultation to establish multiple Framework Agreements with qualified and legally registered firms</p>
+                
+                <div class="tender-meta">
+                    <div class="meta-item">
+                        <span class="label">loaded by:</span>
+                        <span class="value">fainance head</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">File size:</span>
+                        <span class="value">4.1 MB</span>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Download Document</a>
+                </div>
+            </div>
+
+            <!-- Card 2 (DOCX File) -->
+            <div class="tender-card">
+                <div class="card-top">
+                    <span class="badge free">Free</span>
+                    <span class="file-tag docx"><i class="fa-solid fa-file-word"></i> DOCX</span>
+                </div>
+                <h3>End-to-End Design Request For Proposal (LLRP RFP 3808)</h3>
+                <p class="tender-desc">Thedire dawa agriculture water mines and energy bureau invites Request For Proposal (RFP) for the End-to-End Design...</p>
+                
+                <div class="tender-meta">
+                    <div class="meta-item">
+                        <span class="label">loaded by:</span>
+                        <span class="value">fainance head</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">File size:</span>
+                        <span class="value">38.8 KB</span>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Download Document</a>
+                </div>
+            </div>
+
+            <!-- Card 3 (PDF File) -->
+            <div class="tender-card">
+                <div class="card-top">
+                    <span class="badge free">Free</span>
+                    <span class="file-tag pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                </div>
+                <h3>Provision of Integrated TV Production Services (LRPS 2026)</h3>
+                <p class="tender-desc">United Nations Children's Fund (UNICEF) wishes to invite proposals for Provision of Integrated Television Production, Broadcasting...</p>
+                
+                <div class="tender-meta">
+                    <div class="meta-item">
+                        <span class="label">loaded by:</span>
+                        <span class="value">fainance head</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">File size:</span>
+                        <span class="value">19.3 MB</span>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Download Document</a>
+                </div>
+            </div>
+
+            <!-- Card 4 (Paid Document Example) -->
+            <div class="tender-card">
+                <div class="card-top">
+                    <span class="badge paid">ETB 1,000</span>
+                    <span class="file-tag pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                </div>
+                <h3>Purchase of Endoscopy Equipment (ICB/PV/PH/004/2026)</h3>
+                <p class="tender-desc">AWMEB  Invites International Competitive Bids (RFP) for the Purchase of Endoscopy Equipment with high precision standards for our Animal labratory.</p>
+                
+                <div class="tender-meta">
+                    <div class="meta-item">
+                        <span class="label">loaded by:</span>
+                        <span class="value">fainance head</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">File size:</span>
+                        <span class="value">393.9 KB</span>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <a href="#" class="btn-buy"><i class="fa-solid fa-cart-shopping"></i> Buy Now</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button class="page-btn disabled"><i class="fa-solid fa-chevron-left"></i> Previous</button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <span class="dots">...</span>
+            <button class="page-btn">247</button>
+            <button class="page-btn">Next <i class="fa-solid fa-chevron-right"></i></button>
+            
+        </div>
+        <button onclick="document.location.href='index.html'">Logout</button>
+
+    </main>
+
+</body>
+</html>
